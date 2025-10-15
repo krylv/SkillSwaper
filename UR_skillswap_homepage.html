@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - О Нас (Нижняя Граница Пояснений)</title>
+    <!-- Подключение Tailwind CSS (из CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение библиотеки иконок Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- ВСТАВКА: style.css - Только минимальные настройки -->
+    <style>
+        /* Настройка шрифта Inter */
+        html { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- ШАПКА САЙТА (HEADER) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <!-- Название Сайта / Кнопка "Домой" -->
+            <a href="/skillswap_homepage.html" class="text-3xl font-extrabold text-indigo-600 hover:text-indigo-800 transition duration-300">
+                SkillSwap
+            </a>
+
+            <!-- Поиск (Центр) - Виден только на десктопе (lg:block) -->
+            <div class="flex-grow max-w-xl mx-4 hidden lg:block">
+                <div class="relative">
+                    <input type="text" placeholder="ПОИСК: Введите Услугу или Имя пользователя"
+                           class="w-full py-3 px-6 pr-12 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300 shadow-inner">
+                    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-600">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Профиль (Справа) -->
+            <div class="relative group">
+                <button id="profileButton" class="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-100 transition duration-300 focus:outline-none">
+                    <!-- Аватар профиля -->
+                    <img src="https://placehold.co/40x40/6366f1/ffffff?text=Я" alt="Фото профиля" class="w-10 h-10 rounded-full object-cover border-2 border-indigo-500 shadow-md">
+                    <span class="font-medium text-gray-700 hidden sm:inline">Имя Пользователя</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition duration-300 group-hover:rotate-180"></i>
+                </button>
+
+                <!-- Бургер-меню (Скрытое) -->
+                <div id="profileMenu" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 origin-top-right">
+                    <a href="#" class="flex items-center px-4 py-3 hover:bg-indigo-50 rounded-t-xl transition duration-200">
+                        <i data-lucide="user" class="w-5 h-5 mr-3 text-indigo-500"></i> Профиль
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 hover:bg-indigo-50 transition duration-200">
+                        <i data-lucide="clipboard-list" class="w-5 h-5 mr-3 text-indigo-500"></i> Мои Услуги
+                    </a>
+                    <div class="border-t border-gray-100"></div>
+                    <a href="#" class="flex items-center px-4 py-3 text-red-600 hover:bg-red-50 rounded-b-xl transition duration-200">
+                        <i data-lucide="log-out" class="w-5 h-5 mr-3"></i> Выход
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Поиск (Visible on Mobile) -->
+        <div class="p-4 lg:hidden border-t border-gray-100">
+             <div class="relative">
+                <input type="text" placeholder="ПОИСК: Введите Услугу или Имя пользователя"
+                       class="w-full py-3 px-6 pr-12 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300 shadow-inner">
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-600">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+            </div>
+        </div>
+    </header>
+    <!-- КОНЕЦ ШАПКИ -->
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="max-w-7xl mx-auto pt-16 pb-20 px-4 sm:px-6 lg:px-8">
+
+        <!-- ГЕРОЙ-СЕКЦИЯ: Миссия и Видение -->
+        <section class="mb-20 text-center bg-indigo-50 p-10 sm:p-16 rounded-3xl shadow-2xl border-4 border-indigo-200">
+            <span class="text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-4 inline-block bg-indigo-200/50 px-3 py-1 rounded-full">Наша История</span>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Твои Навыки — Твоя Валюта
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-10">
+                Мы верим, что у каждого есть уникальный дар. SkillSwap — это платформа, которая превращает ваш опыт, знания и таланты в универсальную валюту, открывая двери к новым возможностям для обучения и развития.
+            </p>
+            <a href="#" class="inline-flex items-center px-8 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                Начать Обмен Сегодня <i data-lucide="arrow-right" class="w-5 h-5 ml-3"></i>
+            </a>
+        </section>
+
+        <!-- Секция 1: Как Работает SkillSwap (3 Шага с Аккордеоном) -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center tracking-tight">Как это работает? Просто!</h2>
+            
+            <!-- ГЛАВНЫЙ GRID КОНТЕЙНЕР ДЛЯ ШАГОВ и ДЕТАЛЕЙ -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                
+                <!-- Шаг 1: Предложите Свой Навык -->
+                <div id="step-1" class="step-card bg-white p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 transition duration-300 group hover:shadow-2xl cursor-pointer flex flex-col min-h-[10rem]">
+                    
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center border-2 border-indigo-300 flex-shrink-0">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">1. Предложите Навык</h3>
+                        </div>
+                        <!-- Иконка-стрелка для индикации открытия -->
+                        <i data-lucide="chevron-down" class="step-arrow w-5 h-5 text-indigo-500 flex-shrink-0 transition-transform duration-300"></i>
+                    </div>
+                    
+                    <!-- Краткое описание -->
+                    <p class="text-gray-600 text-sm">
+                        Создайте объявление о том, что вы умеете, установив цену в часах или баллах.
+                    </p>
+                </div>
+                
+                <!-- Шаг 2: Найдите То, Что Нужно Вам -->
+                <div id="step-2" class="step-card bg-white p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 transition duration-300 group hover:shadow-2xl cursor-pointer flex flex-col min-h-[10rem]">
+                    
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center border-2 border-indigo-300 flex-shrink-0">
+                                <i data-lucide="search-check" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">2. Найдите Наставника</h3>
+                        </div>
+                        <!-- Иконка-стрелка для индикации открытия -->
+                        <i data-lucide="chevron-down" class="step-arrow w-5 h-5 text-indigo-500 flex-shrink-0 transition-transform duration-300"></i>
+                    </div>
+                    
+                    <!-- Краткое описание -->
+                    <p class="text-gray-600 text-sm">
+                        Используйте умный поиск, чтобы найти идеального наставника или услугу.
+                    </p>
+                </div>
+
+                <!-- Шаг 3: Совершите Обмен -->
+                <div id="step-3" class="step-card bg-white p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 transition duration-300 group hover:shadow-2xl cursor-pointer flex flex-col min-h-[10rem]">
+                    
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center border-2 border-indigo-300 flex-shrink-0">
+                                <i data-lucide="zap" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">3. Совершите Обмен</h3>
+                        </div>
+                        <!-- Иконка-стрелка для индикации открытия -->
+                        <i data-lucide="chevron-down" class="step-arrow w-5 h-5 text-indigo-500 flex-shrink-0 transition-transform duration-300"></i>
+                    </div>
+                    
+                    <!-- Краткое описание -->
+                    <p class="text-gray-600 text-sm">
+                        Проведите сделку, обменяйтесь знаниями или услугами, а затем оставьте честный отзыв.
+                    </p>
+                </div>
+
+                <!-- Блок Деталей 1 (Скрыт по умолчанию) -->
+                <!-- ИЗМЕНЕНИЕ: border-l-4 заменен на border-b-4 -->
+                <div id="detail-1" class="step-detail hidden col-span-full p-6 bg-indigo-50 rounded-b-xl shadow-inner border-b-4 border-indigo-500">
+                    <p class="text-gray-800 font-semibold mb-3 text-lg">Процесс создания предложения:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-2 pl-4">
+                        <li>Оценка: Определите ценность вашего навыка (в часах или внутренней валюте SkillCoin).</li>
+                        <li>Портфолио: Загрузите примеры работ, сертификаты или обучающие видео для повышения доверия.</li>
+                        <li>Настройка: Установите график доступности и предпочтительный формат обмена (онлайн/офлайн).</li>
+                    </ul>
+                </div>
+                
+                <!-- Блок Деталей 2 (Скрыт по умолчанию) -->
+                <!-- ИЗМЕНЕНИЕ: border-l-4 заменен на border-b-4 -->
+                <div id="detail-2" class="step-detail hidden col-span-full p-6 bg-indigo-50 rounded-b-xl shadow-inner border-b-4 border-indigo-500">
+                    <p class="text-gray-800 font-semibold mb-3 text-lg">Алгоритм поиска:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-2 pl-4">
+                        <li>Фильтрация: Используйте фильтры по рейтингу, цене, удаленности и категории.</li>
+                        <li>Отзывы: Изучите профили пользователей, чтобы убедиться в качестве предлагаемых услуг.</li>
+                        <li>Контакт: Свяжитесь с выбранным пользователем через внутренний чат для согласования деталей.</li>
+                    </ul>
+                </div>
+
+                <!-- Блок Деталей 3 (Скрыт по умолчанию) -->
+                <!-- ИЗМЕНЕНИЕ: border-l-4 заменен на border-b-4 -->
+                <div id="detail-3" class="step-detail hidden col-span-full p-6 bg-indigo-50 rounded-b-xl shadow-inner border-b-4 border-indigo-500">
+                    <p class="text-gray-800 font-semibold mb-3 text-lg">Этапы обмена:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-2 pl-4">
+                        <li>Подтверждение: Оба участника подтверждают время и условия обмена в системе.</li>
+                        <li>Проведение: Обмен навыками происходит в согласованном формате (занятие, консультация, выполнение работы).</li>
+                        <li>Закрытие: После завершения, средства (часы/баллы) автоматически переводятся, и вы оставляете отзыв.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Секция 2: Ценности (Преимущества) -->
+        <section class="mb-20 bg-gray-100 p-10 sm:p-16 rounded-3xl shadow-inner">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center tracking-tight">Наши Ключевые Ценности</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Ценность 1: Сообщество -->
+                <div class="text-center p-4">
+                    <i data-lucide="users" class="w-10 h-10 text-indigo-600 mx-auto mb-3"></i>
+                    <h4 class="text-xl font-semibold mb-2">Сообщество</h4>
+                    <p class="text-gray-600 text-sm">Мы строим сеть, основанную на доверии и взаимной поддержке, а не на холодных транзакциях.</p>
+                </div>
+
+                <!-- Ценность 2: Доступность -->
+                <div class="text-center p-4">
+                    <i data-lucide="graduation-cap" class="w-10 h-10 text-indigo-600 mx-auto mb-3"></i>
+                    <h4 class="text-xl font-semibold mb-2">Доступность</h4>
+                    <p class="text-gray-600 text-sm">Качественное обучение должно быть доступно каждому, независимо от финансового положения.</p>
+                </div>
+                
+                <!-- Ценность 3: Развитие -->
+                <div class="text-center p-4">
+                    <i data-lucide="line-chart" class="w-10 h-10 text-indigo-600 mx-auto mb-3"></i>
+                    <h4 class="text-xl font-semibold mb-2">Развитие</h4>
+                    <p class="text-gray-600 text-sm">SkillSwap — это инструмент для непрерывного личного и профессионального роста.</p>
+                </div>
+
+                <!-- Ценность 4: Инновации -->
+                <div class="text-center p-4">
+                    <i data-lucide="rocket" class="w-10 h-10 text-indigo-600 mx-auto mb-3"></i>
+                    <h4 class="text-xl font-semibold mb-2">Инновации</h4>
+                    <p class="text-gray-600 text-sm">Мы постоянно совершенствуем платформу, чтобы сделать обмен навыками интуитивным и удобным.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция 3: КОМАНДА -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center tracking-tight">
+                Лица Проекта: Наша Инвестиционная Команда
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Член Команды 1: Ева (Инвестиционный Стратег) -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-200 text-center transform hover:scale-[1.02] transition duration-300">
+                    <img src="https://placehold.co/120x120/4f46e5/ffffff?text=E" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/120x120/4f46e5/ffffff?text=E';" 
+                         alt="Фото Евы" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-200 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">Ева</h3>
+                    <p class="text-indigo-600 font-semibold mb-3">Инвестиционный Стратег</p>
+                    <p class="text-gray-600 text-sm">
+                        Руководит разработкой долгосрочного видения проекта и отвечает за привлечение ключевых инвестиций. Проводит финансовый анализ.
+                    </p>
+                </div>
+
+                <!-- Член Команды 2: Михаил (Технический Директор) -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-200 text-center transform hover:scale-[1.02] transition duration-300">
+                    <img src="https://placehold.co/120x120/10b981/ffffff?text=M" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/120x120/10b981/ffffff?text=M';" 
+                         alt="Фото Михаила" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-200 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">Михаил</h3>
+                    <p class="text-indigo-600 font-semibold mb-3">Ведущий Технический Директор</p>
+                    <p class="text-gray-600 text-sm">
+                        Отвечает за всю техническую архитектуру: разработку веб-сайта, внедрение видео-функций и интеграцию технологий ИИ.
+                    </p>
+                </div>
+
+                <!-- Член Команды 3: Юлия (Маркетинг и Сообщество) -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-200 text-center transform hover:scale-[1.02] transition duration-300">
+                    <img src="https://placehold.co/120x120/f59e0b/ffffff?text=J" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/120x120/f59e0b/ffffff?text=J';" 
+                         alt="Фото Юлии" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-200 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">Юлия</h3>
+                    <p class="text-indigo-600 font-semibold mb-3">Директор по Коммуникациям</p>
+                    <p class="text-gray-600 text-sm">
+                        Управляет стратегией маркетинга, коммуникациями и пользовательским опытом, создавая активное и вовлеченное сообщество.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Секция 4: CTA для регистрации -->
+        <section class="text-center py-12 bg-indigo-600 rounded-2xl shadow-2xl">
+            <h3 class="text-3xl font-bold text-white mb-4">
+                Готовы начать свое путешествие?
+            </h3>
+            <p class="text-indigo-200 text-xl mb-8">
+                Присоединяйтесь к тысячам пользователей, которые уже обмениваются и учатся.
+            </p>
+            <a href="#" class="inline-flex items-center px-10 py-4 bg-white text-indigo-600 text-lg font-semibold rounded-full shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105 ring-4 ring-white/50">
+                Зарегистрироваться Сейчас <i data-lucide="arrow-up-right" class="w-5 h-5 ml-3"></i>
+            </a>
+        </section>
+
+    </main>
+    <!-- КОНЕЦ ОСНОВНОГО КОНТЕНТА -->
+    
+    <!-- ФУТЕР САЙТА (FOOTER) -->
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            
+            <!-- ROW 1: Основное содержание (Контакты, Лого, Подписка) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-10 border-t border-gray-700">
+                
+                <!-- COLUMN 1 (СЛЕВА): Контакты -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-gray-200">Контакты</h4>
+                    
+                    <!-- Секция с контактами -->
+                    <div class="mb-6 space-y-2">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i data-lucide="mail" class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"></i>
+                            <a href="mailto:support@skillswap.demo" class="hover:text-indigo-300 transition duration-200">support@skillswap.demo</a>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i data-lucide="phone" class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"></i>
+                            <span class="whitespace-nowrap">+7 (495) 123-45-67</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"></i>
+                            <span>Тюмень, Проспект Инноваций, 42</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Кнопка "О нас" (синхронизирована) -->
+                     <a href="#" target="_blank" 
+                        class="inline-flex items-center mt-6 px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                        О Нас: Твои Навыки — Твоя Валюта
+                    </a>
+                </div>
+
+                <!-- COLUMN 2 (ЦЕНТР): Лого и Описание -->
+                <div class="md:text-center">
+                    <h3 class="text-3xl font-extrabold text-indigo-400 mb-4">SkillSwap</h3>
+                    <p class="text-gray-400 text-sm">
+                        Платформа для обмена навыками и знаниями. Учитесь, преподавайте, развивайтесь.
+                    </p>
+                </div>
+                
+                <!-- COLUMN 3 (СПРАВА): Подписка -->
+                <div class="md:text-right">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-200">Подпишитесь</h4>
+                    <p class="text-sm text-gray-400 mb-4">Получайте свежие предложения и обновления.</p>
+                    <form class="flex flex-col space-y-3 lg:w-auto lg:ml-auto">
+                        <input type="email" placeholder="Ваша почта" 
+                               class="flex-grow p-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200">
+                        <button type="submit" class="p-3 bg-indigo-500 rounded-lg font-semibold hover:bg-indigo-600 transition duration-300">
+                            Подписаться
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ROW 2: Дисклеймер (Растянутый блок внизу) -->
+            <div class="py-6 mt-6 border-t border-gray-700">
+                <h4 class="text-lg font-semibold mb-4 text-red-400">Внимание (Демо-версия)</h4>
+                <div class="text-xs text-red-300 p-4 bg-gray-700 rounded-xl shadow-inner border border-red-500/50">
+                    <p class="font-bold mb-1">⚠️ ДЕМОНСТРАЦИОННАЯ ВЕРСИЯ ПРОДУКТА.</p>
+                    <p>Данный интерфейс предназначен только для ознакомления. Некоторые функции (поиск, профиль, подписка) не подключены к реальной базе данных и могут не работать.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Копирайт (Нижняя полоса) -->
+        <div class="border-t border-gray-700 py-4">
+            <p class="text-center text-gray-500 text-sm">
+                &copy; 2025 SkillSwap Demo. Все права защищены.
+            </p>
+        </div>
+    </footer>
+    <!-- КОНЕЦ ФУТЕРА -->
+
+
+    <script>
+        // Инициализация иконок Lucide при загрузке страницы
+        window.onload = function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        };
+
+        // --- ЛОГИКА АККОРДЕОНА (С МЕРДЖЕМ СТИЛЕЙ) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const stepCards = document.querySelectorAll('.step-card');
+            const detailBlocks = document.querySelectorAll('.step-detail');
+            
+            stepCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const stepId = card.id.split('-')[1]; 
+                    const targetDetail = document.getElementById(`detail-${stepId}`);
+                    const targetArrow = card.querySelector('.step-arrow');
+
+                    const isCurrentlyOpen = targetDetail.classList.contains('active');
+
+                    // 1. Сброс всех стилей карточек и закрытие всех деталей
+                    detailBlocks.forEach(detail => {
+                        // Скрываем, если не скрыто
+                        if (!detail.classList.contains('hidden')) {
+                            detail.classList.add('hidden');
+                        }
+                        detail.classList.remove('active');
+                    });
+                    
+                    document.querySelectorAll('.step-arrow').forEach(arrow => {
+                        arrow.classList.remove('rotate-180');
+                    });
+                    
+                    // Сброс стилей всех карточек (возврат к дефолтным)
+                    stepCards.forEach(c => {
+                        // Удаляем стили мерджа
+                        c.classList.remove('rounded-b-none', 'shadow-none', 'z-10');
+                        // Возвращаем дефолтные стили
+                        c.classList.add('rounded-xl', 'shadow-xl'); 
+                    });
+
+
+                    // 2. Если карточка не была открыта, открываем ее
+                    if (!isCurrentlyOpen) {
+                        // Открываем блок деталей
+                        targetDetail.classList.remove('hidden');
+                        targetDetail.classList.add('active');
+                        targetArrow.classList.add('rotate-180');
+
+                        // Применяем стили слияния к активной карточке
+                        card.classList.remove('rounded-xl', 'shadow-xl'); // Удаляем полные закругления и тень
+                        card.classList.add('rounded-t-xl', 'rounded-b-none', 'shadow-lg', 'z-10'); // Оставляем только верхние закругления и легкую тень
+                    }
+                });
+            });
+        });
+        // --- КОНЕЦ ЛОГИКИ АККОРДЕОНА ---
+
+    </script>
+</body>
+</html>
