@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSwap - Главная</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="global.css" />
+    <style></style>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Шапка Сайта (Header) - Z-INDEX УВЕЛИЧЕН ДО Z-50 -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <!-- Название Сайта / Кнопка "Домой" -->
+        <a
+          href="#"
+          class="text-3xl font-extrabold text-indigo-600 hover:text-indigo-800 transition duration-300"
+        >
+          SkillSwap
+        </a>
+
+        <!-- Поиск (Центр) - Виден только на десктопе (lg:block) -->
+        <div class="flex-grow max-w-xl mx-4 hidden lg:block">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="ПОИСК: Введите Услугу или Имя пользователя"
+              class="w-full py-3 px-6 pr-12 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300 shadow-inner"
+            />
+            <button
+              class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-600"
+            >
+              <i data-lucide="search" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Профиль (Справа) -->
+        <div class="relative group">
+          <button
+            id="profileButton"
+            class="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-100 transition duration-300 focus:outline-none"
+          >
+            <!-- Аватар профиля -->
+            <img
+              src="https://placehold.co/40x40/6366f1/ffffff?text=Я"
+              alt="Фото профиля"
+              class="w-10 h-10 rounded-full object-cover border-2 border-indigo-500 shadow-md"
+            />
+            <span class="font-medium text-gray-700 hidden sm:inline"
+              >Имя Пользователя</span
+            >
+            <i
+              data-lucide="chevron-down"
+              class="w-4 h-4 text-gray-500 transition duration-300 group-hover:rotate-180"
+            ></i>
+          </button>
+
+          <!-- Бургер-меню (Скрытое) -->
+          <div
+            id="profileMenu"
+            class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 origin-top-right"
+          >
+            <a
+              href="#"
+              class="flex items-center px-4 py-3 hover:bg-indigo-50 rounded-t-xl transition duration-200"
+            >
+              <i data-lucide="user" class="w-5 h-5 mr-3 text-indigo-500"></i>
+              Профиль
+            </a>
+            <a
+              href="#"
+              class="flex items-center px-4 py-3 hover:bg-indigo-50 transition duration-200"
+            >
+              <i
+                data-lucide="clipboard-list"
+                class="w-5 h-5 mr-3 text-indigo-500"
+              ></i>
+              Мои Услуги
+            </a>
+            <div class="border-t border-gray-100"></div>
+            <a
+              href="#"
+              class="flex items-center px-4 py-3 text-red-600 hover:bg-red-50 rounded-b-xl transition duration-200"
+            >
+              <i data-lucide="log-out" class="w-5 h-5 mr-3"></i> Выход
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Поиск (Visible on Mobile) -->
+      <div class="p-4 lg:hidden border-t border-gray-100">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="ПОИСК: Введите Услугу или Имя пользователя"
+            class="w-full py-3 px-6 pr-12 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300 shadow-inner"
+          />
+          <button
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-600"
+          >
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ - Максимальная ширина 7xl (1280px) -->
+    <main class="max-w-7xl mx-auto pt-20 pb-20 px-4 sm:px-6 lg:px-8">
+      <!-- Секция 1: Лучшие Предложения (Мануальная Карусель) -->
+      <section class="mb-20">
+        <!-- Заголовок центрирован: text-center -->
+        <h2
+          class="text-4xl font-bold text-gray-900 mb-12 tracking-tight text-center"
+        >
+          🔥 Лучшие Предложения
+        </h2>
+
+        <!-- Контейнер для центрированной карусели. -->
+        <div id="offer-carousel-wrapper" class="offer-carousel-wrapper">
+          <!-- Контейнер для самих карточек, который будет двигаться -->
+          <div id="offer-carousel-content" class="offer-carousel-content">
+            <!-- Карточки (включая клоны) будут сгенерированы JS -->
+          </div>
+        </div>
+
+        <!-- НОВЫЙ КОНТРОЛЬНЫЙ БЛОК (Под каруселью) -->
+        <div
+          id="offer-carousel-controls"
+          class="flex justify-center items-center mt-8 space-x-6"
+        >
+          <!-- Кнопка "Назад" (Квадратный блок) -->
+          <button
+            id="prev-button"
+            class="w-12 h-12 bg-indigo-600 text-white rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 flex items-center justify-center transform hover:scale-105"
+          >
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+          </button>
+
+          <!-- Индикаторные Точки (Сгенерированы JS) -->
+          <div
+            id="indicator-dots-container"
+            class="flex items-center space-x-3"
+          >
+            <!-- Dots will be generated here by JavaScript -->
+          </div>
+
+          <!-- Кнопка "Вперед" (Квадратный блок) -->
+          <button
+            id="next-button"
+            class="w-12 h-12 bg-indigo-600 text-white rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 flex items-center justify-center transform hover:scale-105"
+          >
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Секция 2: Лучшие Пользователи (Бесконечно движущиеся ряды) -->
+      <section class="mb-20">
+        <!-- Заголовок центрирован: text-center -->
+        <h2
+          class="text-4xl font-bold text-gray-900 mb-8 tracking-tight text-center"
+        >
+          Самые активные
+        </h2>
+
+        <div class="space-y-6">
+          <!-- Верхний ряд: Движение ВПРАВО -->
+          <div
+            class="user-row-container rounded-xl bg-indigo-50 py-4 shadow-xl"
+          >
+            <div id="user-row-top" class="user-scroll-track row-right">
+              <!-- Карточки будут сгенерированы JS -->
+            </div>
+          </div>
+
+          <!-- Нижний ряд: Движение ВЛЕВО -->
+          <div class="user-row-container rounded-xl bg-white py-4 shadow-xl">
+            <div id="user-row-bottom" class="user-scroll-track row-left">
+              <!-- Карточки будут сгенерированы JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция 3: Кнопка "О нас" (Перенесена вниз) -->
+      <section
+        id="about-us-cta"
+        class="mb-0 py-12 text-center bg-gray-100 rounded-2xl shadow-inner border border-gray-200"
+      >
+        <h3 class="text-3xl font-bold text-gray-700 mb-6">
+          Узнайте, как SkillSwap меняет мир
+        </h3>
+        <a
+          href="/about-us"
+          target="_blank"
+          class="inline-flex items-center px-10 py-4 bg-indigo-600 text-white text-lg font-semibold rounded-full shadow-xl hover:bg-indigo-700 transition duration-300 transform hover:scale-105 ring-4 ring-indigo-300/50"
+        >
+          О Нас: Твои Навыки — Твоя Валюта
+          <i data-lucide="external-link" class="w-5 h-5 ml-3"></i>
+        </a>
+      </section>
+    </main>
+
+    <!-- Футер Сайта (Footer) - Максимальная ширина 7xl (1280px) -->
+    <footer class="bg-gray-800 text-white mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- ROW 1: Основное содержание (Контакты, Лого, Подписка) -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-10 border-t border-gray-700"
+        >
+          <!-- COLUMN 1 (СЛЕВА): Контакты -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4 text-gray-200">Контакты</h4>
+
+            <!-- Секция с контактами -->
+            <div class="mb-6 space-y-2">
+              <div class="flex items-center text-sm text-gray-400">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"
+                ></i>
+                <a
+                  href="mailto:support@skillswap.demo"
+                  class="hover:text-indigo-300 transition duration-200"
+                  >support@skillswap.demo</a
+                >
+              </div>
+              <div class="flex items-center text-sm text-gray-400">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"
+                ></i>
+                <span class="whitespace-nowrap">+7 (495) 123-45-67</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-400">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0"
+                ></i>
+                <span>Тюмень, Проспект Инноваций, 42</span>
+              </div>
+            </div>
+
+            <!-- Кнопка "О нас" (синхронизирована) -->
+            <a
+              href="/about-us"
+              target="_blank"
+              class="inline-flex items-center mt-6 px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
+            >
+              О Нас: Твои Навыки — Твоя Валюта
+            </a>
+          </div>
+
+          <!-- COLUMN 2 (ЦЕНТР): Лого и Описание -->
+          <div class="md:text-center">
+            <h3 class="text-3xl font-extrabold text-indigo-400 mb-4">
+              SkillSwap
+            </h3>
+            <p class="text-gray-400 text-sm">
+              Платформа для обмена навыками и знаниями. Учитесь, преподавайте,
+              развивайтесь.
+            </p>
+          </div>
+
+          <!-- COLUMN 3 (СПРАВА): Подписка -->
+          <div class="md:text-right">
+            <h4 class="text-lg font-semibold mb-4 text-gray-200">
+              Подпишитесь
+            </h4>
+            <p class="text-sm text-gray-400 mb-4">
+              Получайте свежие предложения и обновления.
+            </p>
+            <form class="flex flex-col space-y-3 lg:w-auto lg:ml-auto">
+              <input
+                type="email"
+                placeholder="Ваша почта"
+                class="flex-grow p-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+              />
+              <button
+                type="submit"
+                class="p-3 bg-indigo-500 rounded-lg font-semibold hover:bg-indigo-600 transition duration-300"
+              >
+                Подписаться
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ROW 2: Дисклеймер (Растянутый блок внизу) -->
+        <div class="py-6 mt-6 border-t border-gray-700">
+          <h4 class="text-lg font-semibold mb-4 text-red-400">
+            Внимание (Демо-версия)
+          </h4>
+          <div
+            class="text-xs text-red-300 p-4 bg-gray-700 rounded-xl shadow-inner border border-red-500/50"
+          >
+            <p class="font-bold mb-1">⚠️ ДЕМОНСТРАЦИОННАЯ ВЕРСИЯ ПРОДУКТА.</p>
+            <p>
+              Данный интерфейс предназначен только для ознакомления. Некоторые
+              функции (поиск, профиль, подписка) не подключены к реальной базе
+              данных и могут не работать.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Копирайт (Нижняя полоса) -->
+      <div class="border-t border-gray-700 py-4">
+        <p class="text-center text-gray-500 text-sm">
+          &copy; 2025 SkillSwap Demo. Все права защищены.
+        </p>
+      </div>
+    </footer>
+    <!-- КОНЕЦ ФУТЕРА -->
+
+    <!-- ВСТАВКА: script.js -->
+   
+  </body>
+</html>
